@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
+<!-- above set at the top of the file will set     -->
+<!-- the browser's rendering engine into           -->
+<!-- "Quirks Mode". Replacing this declaration     -->
+<!-- with a "Standards Mode" doctype is supported, -->
+<!-- but may lead to some differences in layout.   -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Hello App Engine</title>
+  </head>
+
+  <body>
+  
+    <h1>Hello App Engine!</h1>
+	
+<FORM method=post action="/rest/login">
+<TABLE BORDER=0>
+<TR>
+	<TD>Email</TD>
+	<TD>
+	<INPUT type=text name="email">
+	</TD>
+</TR>
+
+<TR>
+	<TD>Password</TD>
+	<TD>
+	<INPUT type=password name="password">
+	</TD>
+</TR>
+
+<TR>
+	<TD COLSPAN=2>
+	<INPUT type="submit" value="Login">
+	</TD>
+</TR>
+
+    </TABLE>
+    </FORM>
+    
+ <!-- Code nécessaire à l'intégration des social plugin facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=342901602470132";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-login-button" data-show-faces="false" data-width="200" 
+	data-max-rows="1" registration-url="https%3A%2F%2Fmyopenplatform.appspot.com%2Ffacebookcallback">
+</div>    
+</body>
+</html>

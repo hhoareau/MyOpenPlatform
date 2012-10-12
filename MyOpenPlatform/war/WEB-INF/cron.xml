@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <cron>
+    <url>/crontask</url>
+    <description>Repopulate the cache every 10 minutes</description>
+    <schedule>every 10 minutes</schedule>
+  </cron>
+ 
+</cronentries>

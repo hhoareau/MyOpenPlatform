@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Doodle Poster Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+  </head>
+  <body>
+  
+    <div id="fb-root"></div>
+    
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=342901602470132";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '342901602470132', // App ID
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    })
+  };
+</script>
+
+    <h1>Achat de jetons</h1>
+    
+ <!-- 
+ Ici on trouve la fabrication du bouton d'achat de pack de crédit fabriquer sur PayPal
+ La fabrication du bouton est expliqué ici : https://www.paypal.com/fr/cgi-bin/webscr?cmd=p/xcl/rec/singleitem-intro-outside
+ 
+ Ainsi pour créer un bouton acheter vous devez
+ 1. Ouvrir un compte paypal
+ 2. l'upgrader en comptre premium (gratuit)
+ 3. Ouvrir les préférences (https://www.paypal.com/uk/cgi-bin/webscr?cmd=_profile-summary&nav=0.5)
+ 4. Ouvrir l'onglet "Mes ventes" puis Mettre a jour les Bouton Paypal (https://www.paypal.com/fr/cgi-bin/customerprofileweb?cmd=_button-management)
+  
+ Pour le fonctionnement de MyOpenPlatform il est important d'ajouter les champs 
+  -->
+    
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="8K7N64T4GAZDG">
+<table>
+<tr><td><input type="hidden" name="on0" value="Options">Options</td></tr><tr><td><select name="os0">
+	<option value="Pack 10 credits">Pack 10 credits €0,01 EUR</option>
+	<option value="Pack 1000 credits">Pack 1000 credits €1,00 EUR</option>
+	<option value="Pack 5000 credits">Pack 5000 credits €8,00 EUR</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="EUR">
+<input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
+<img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<script>
+function convertPrice(price, currencyData) {
+var currmap = {EUR: '€'}
+
+    var currency = currmap[currencyData.currency.user_currency]
+        || currencyData.currency.user_currency, // in case the map doesn't cover it
+    rate = currencyData.currency.currency_exchange_inverse,
+    offset = currencyData.currency.currency_offset;
+
+    // JS Math.round only rounds to int, so work around that
+    var localPrice = String(Math.round(price * rate * offset)); 
+
+    // Using string operations - you could also use floor(division) and mod
+    offset = {1:0, 10:-1, 100:-2, 1000: -3}[offset];
+    var minorUnits = localPrice.substr(offset),
+        majorUnits = localPrice.substring(0, localPrice.length + offset) || "0",
+        separator = (1.1).toLocaleString()[1]; // use the locale-correct decimal
+
+    var displayPrice = currency + String(majorUnits) +
+        (minorUnits ? separator + minorUnits : '');
+    return displayPrice;
+}
+
+</script>
+
+<img src="https://developers.facebook.com/attachment/Pay_with_fb_button.png" 
+	onClick="FB.ui({method: 'pay',action: 'buy_item',order_info: {'item_id': '1a'}},
+					function(){alert('coucou')}
+					)"
+/>
+
+<p>
+Achat en BitCoin<br></br>
+<a href="uri:1PD2QyM6cyBHTBjUmVJJSbFGuUx2aa3BTw">
+<img src="/bbb1000.png"></img></a>
+</p>
+    
+  </body>
+</html>

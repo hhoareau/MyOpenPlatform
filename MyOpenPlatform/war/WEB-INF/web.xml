@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+ 	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>buy.html</welcome-file>
+		<welcome-file>subscribe.html</welcome-file>
+	</welcome-file-list>
+
+<context-param>
+		<param-name>org.restlet.application</param-name>
+		<param-value>com.example.contribuez.servlet.RestletDispatch</param-value>
+</context-param>
+
+<servlet>
+      <servlet-name>RestletServlet</servlet-name>
+      <servlet-class>org.restlet.ext.servlet.ServerServlet</servlet-class>
+ 		<load-on-startup>1</load-on-startup>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>RestletServlet</servlet-name>
+      <url-pattern>/api/*</url-pattern>
+</servlet-mapping>
+
+   <servlet>
+      <servlet-name>callback</servlet-name>
+      <servlet-class>MyOpenPlatform.core.callback</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>callback</servlet-name>
+      <url-pattern>/callback</url-pattern>
+</servlet-mapping>
+
+<servlet>
+      <servlet-name>facebookcallback</servlet-name>
+      <servlet-class>MyOpenPlatform.core.facebookCallback</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>facebookcallback</servlet-name>
+      <url-pattern>/facebookcallback</url-pattern>
+</servlet-mapping>
+
+   <servlet>
+      <servlet-name>crontask</servlet-name>
+      <servlet-class>MyOpenPlatform.core.crontask</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>crontask</servlet-name>
+      <url-pattern>/crontask</url-pattern>
+</servlet-mapping>
+   
+
+ <servlet>
+  <servlet-name>SystemServiceServlet</servlet-name>
+  <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+  <init-param>
+   <param-name>services</param-name>
+   <param-value/>
+  </init-param>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>SystemServiceServlet</servlet-name>
+  <url-pattern>/_ah/spi/*</url-pattern>
+ </servlet-mapping>
+</web-app>

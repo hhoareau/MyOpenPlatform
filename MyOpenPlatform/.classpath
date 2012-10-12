@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/objectify-3.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-all-1.9.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jsontoken-1.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/joda-time-2.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/google-api-client-util-1.2.1-alpha.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/org.restlet.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/org.restlet.ext.servlet.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/PayPalXGAEToolkit-0.1-dev.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/bitcoinj-0.5.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/recaptcha4j-0.0.7.jar"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/v2"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>
